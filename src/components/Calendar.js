@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import { Button, Grid, Typography, Paper } from "@mui/material";
+import "./Calendar.css"; // Assuming you have a CSS file for styles
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(dayjs());
