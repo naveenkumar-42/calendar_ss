@@ -1,0 +1,30 @@
+.calendar-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.day-name {
+  font-weight: bold;
+}
+
+.day-cell {
+  padding: 8px;
+  height: 60px;
+}
+
+.today {
+  background-color: #1976d2 !important;
+  color: #fff;
+  border-radius: 50%;
+}
+
+.other-month {
+  opacity: 0.4;
+}
