@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
-import { Button, Grid, Typography, Paper } from "@mui/material";
-import "./Calendar.css"; // Assuming you have a CSS file for styles
+// import Calendar from "./components/Calendar";
+import "./Calendar.css";
+import { Button, Typography, Grid, Paper } from "@mui/material";
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(dayjs());
@@ -11,15 +12,18 @@ const Calendar = () => {
   const today = dayjs();
 
   const generateCalendar = () => {
-    const date = startDay.clone();
     const calendar = [];
+    let date = startDay.clone();
+console.log(date)
+    while (date.isBefore(endDay, "day") || date.isSame(endDay, "day")) {
+      const week = [];
 
-    while (date.isBefore(endDay, "day")) {
-      calendar.push(
-        Array(7)
-          .fill(0)
-          .map(() => date.add(1, "day").clone())
-      );
+      for (let i = 0; i < 7; i++) {
+        week.push(date.clone());
+        date = date.add(1, "day");
+      }
+
+      calendar.push(week);
     }
 
     return calendar;
@@ -39,9 +43,7 @@ const Calendar = () => {
     <div className="calendar-container">
       <div className="calendar-header">
         <Button onClick={handlePrevMonth}>Prev</Button>
-        <Typography variant="h5">
-          {currentDate.format("MMMM YYYY")}
-        </Typography>
+        <Typography variant="h5">{currentDate.format("MMMM YYYY")}</Typography>
         <Button onClick={handleNextMonth}>Next</Button>
       </div>
 
@@ -61,14 +63,10 @@ const Calendar = () => {
                 <Paper
                   className={`day-cell ${
                     day.isSame(today, "day") ? "today" : ""
-                  } ${
-                    day.isSame(currentDate, "month") ? "" : "other-month"
-                  }`}
+                  } ${day.isSame(currentDate, "month") ? "" : "other-month"}`}
                   elevation={2}
                 >
-                  <Typography align="center">
-                    {day.date()}
-                  </Typography>
+                  <Typography align="center">{day.date()}</Typography>
                 </Paper>
               </Grid>
             ))}
