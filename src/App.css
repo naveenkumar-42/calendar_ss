@@ -1,0 +1,30 @@
+/* App.css */
+
+body {
+  background-color: #0f0f0f;
+  color: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+  height: 100vh;
+
+  align-items: center;
+  overflow-y: auto;
+  width: 100vw;
+}
+
+.app-container {
+  padding: 40px;
+}
+
+.app-title {
+  text-align: center;
+  color: #90caf9;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.calendar-wrapper {
+  background-color: #1f1f1f;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}

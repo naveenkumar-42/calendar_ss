@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import dayjs from "dayjs";
 import CalendarHeader from "./CalendarHeader";
 import Day from "./Day";
-import "../styles/Calendar.scss";
+import "../styles/Calendar.css";
 
 const Calendar = () => {
   const [currentDate, setCurrentDate] = useState(dayjs());

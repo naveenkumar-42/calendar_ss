@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/Modal.scss";
+import "../styles/Modal.css";
 
 const EventModal = ({ date, close, onSave }) => {
   const [text, setText] = useState("");

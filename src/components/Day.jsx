@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import dayjs from "dayjs";
 import EventModal from "./EventModal";
-import "../styles/Day.scss";
+import "../styles/Day.css";
 
 const Day = ({ date, currentMonth, events, addEvent }) => {
   const isToday = date.isSame(dayjs(), "day");
