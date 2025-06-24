@@ -4,10 +4,13 @@
   border-radius: 12px;
 }
 
+
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 0.5rem;
+  margin: 2rem;
 }
 
 .calendar-header {

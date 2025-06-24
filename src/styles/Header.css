@@ -1,15 +1,33 @@
 .calendar-header-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .calendar-header-wrapper button {
-  padding: 0.3rem 1rem;
+  padding: 1rem;
   background: #333;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+}
+
+.calendar-header-wrapper button:hover {
+  padding: 1rem;
+  font-weight: bold ;
+  background: #666666;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.calendar-title {
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }

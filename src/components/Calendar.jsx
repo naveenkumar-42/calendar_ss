@@ -27,7 +27,6 @@ const Calendar = () => {
 
   return (
     <div className="calendar">
-      <h2 className="calendar-title">My Calendar</h2>
       <CalendarHeader date={currentDate} setDate={setCurrentDate} />
       <div className="calendar-grid">
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
