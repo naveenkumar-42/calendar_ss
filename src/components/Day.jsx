@@ -19,9 +19,16 @@ const Day = ({ date, currentMonth, events }) => {
     >
       <div className="date-number">{date.date()}</div>
       <div className="events">
-        {events.map((e, i) => (
-          <div key={i} className="event">{e}</div>
-        ))}
+{Array.isArray(events)
+  ? events.map((e, i) => (
+      <div key={i} className="event">{e}</div>
+    ))
+  : Object.entries(events).map(([time, task], i) => (
+      <div key={i} className="event">
+        <strong>{time}</strong>: {task}
+      </div>
+    ))}
+
       </div>
     </div>
   );

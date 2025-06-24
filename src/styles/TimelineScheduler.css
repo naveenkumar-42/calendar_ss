@@ -1,55 +1,68 @@
-.timeline-container {
-  max-width: 700px;
-  margin: 50px auto;
-  color: #fff;
-  background: #1e1e1e;
-  padding: 20px;
-  border-radius: 12px;
-}
-
-h2 {
+.timeline-page {
+  padding: 40px;
+  background-color: #111;
+  color: #eee;
+  font-family: "Segoe UI", sans-serif;
+  min-height: 100vh;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-button {
-  margin-bottom: 10px;
-  background: #90caf9;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #000;
+.timeline-page h2 {
+  margin-bottom: 30px;
+  color: #fff;
 }
 
-.timeline {
-  border-top: 1px solid #444;
-}
-
-.hour-block {
+.timeline-list {
   display: flex;
-  border-bottom: 1px solid #444;
-  padding: 6px 0;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.hour-label {
-  width: 60px;
-  text-align: right;
-  margin-right: 10px;
-  font-size: 0.9rem;
-  color: #aaa;
+.time-slot {
+  display: flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 12px 16px;
+  border-radius: 8px;
+  justify-content: space-between;
 }
 
-.hour-slot {
+.slot-time {
+  font-weight: bold;
+  width: 120px;
+  color: #90caf9;
+}
+
+.slot-task {
   flex: 1;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.task {
-  background: #66bb6a;
-  padding: 4px 8px;
+.slot-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.slot-buttons button,
+.task-edit button {
+  background: none;
+  border: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.task-edit {
+  display: flex;
+  gap: 10px;
+}
+
+.task-edit input {
+  padding: 6px 10px;
+  border: 1px solid #444;
   border-radius: 4px;
-  font-size: 0.85rem;
-  margin-left: 5px;
-  color: #000;
+  background: #222;
+  color: #fff;
 }
