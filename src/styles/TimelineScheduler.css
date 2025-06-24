@@ -1,0 +1,55 @@
+.timeline-container {
+  max-width: 700px;
+  margin: 50px auto;
+  color: #fff;
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+button {
+  margin-bottom: 10px;
+  background: #90caf9;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #000;
+}
+
+.timeline {
+  border-top: 1px solid #444;
+}
+
+.hour-block {
+  display: flex;
+  border-bottom: 1px solid #444;
+  padding: 6px 0;
+}
+
+.hour-label {
+  width: 60px;
+  text-align: right;
+  margin-right: 10px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.hour-slot {
+  flex: 1;
+  position: relative;
+}
+
+.task {
+  background: #66bb6a;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-left: 5px;
+  color: #000;
+}
