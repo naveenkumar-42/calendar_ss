@@ -32,21 +32,33 @@ const Calendar = () => {
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
           <div className="calendar-header" key={d}>{d}</div>
         ))}
-        {days.map((day, idx) => (
-          <Day
-            key={idx}
-            date={day}
-            currentMonth={currentDate.month()}
-            events={events[day.format("YYYY-MM-DD")] || []}
-            addEvent={(event) => {
-              const dateStr = day.format("YYYY-MM-DD");
-              setEvents({
-                ...events,
-                [dateStr]: [...(events[dateStr] || []), event],
-              });
-            }}
-          />
-        ))}
+        {days.map((day, idx) => {
+          const dateStr = day.format("YYYY-MM-DD");
+          const dayEvents = events[dateStr];
+
+          // If event type is array, pass it. If it's timeline-based, show time count.
+          const displayEvents = Array.isArray(dayEvents)
+            ? dayEvents
+            : dayEvents
+              ? Object.values(dayEvents).flat().map(e => e.text)
+              : [];
+
+          return (
+            <Day
+              key={idx}
+              date={day}
+              currentMonth={currentDate.month()}
+              events={displayEvents}
+              addEvent={(event) => {
+                const updated = {
+                  ...events,
+                  [dateStr]: [...(Array.isArray(events[dateStr]) ? events[dateStr] : []), event],
+                };
+                setEvents(updated);
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   );
