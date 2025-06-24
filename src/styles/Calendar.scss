@@ -1,0 +1,17 @@
+.calendar {
+  background: #1f1f1f;
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-header {
+  font-weight: bold;
+  color: #90caf9;
+  text-align: center;
+}

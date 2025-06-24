@@ -1,0 +1,37 @@
+.day {
+  background: #2b2b2b;
+  border-radius: 8px;
+  padding: 0.5rem;
+  cursor: pointer;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s ease;
+}
+
+.day:hover {
+  background: #3c3c3c;
+}
+
+.today {
+  border: 2px solid #4caf50;
+}
+
+.faded {
+  opacity: 0.4;
+}
+
+.date-number {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.event {
+  font-size: 0.8rem;
+  background: #1976d2;
+  color: white;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin-top: 2px;
+  text-align: center;
+}

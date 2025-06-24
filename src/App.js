@@ -1,18 +1,38 @@
-import React from 'react';
-import Calendar from './components/Calendar';
-import './components/Calendar.css';
+import React from "react";
+import { ThemeProvider, createTheme, CssBaseline, Container } from "@mui/material";
+import Calendar from "./components/Calendar";
 
-function App() {
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    background: {
+      default: "#121212",
+      paper: "#1e1e1e",
+    },
+    primary: {
+      main: "#90caf9",
+    },
+    secondary: {
+      main: "#f48fb1",
+    },
+  },
+  typography: {
+    fontFamily: "'Segoe UI', sans-serif",
+  },
+  shape: {
+    borderRadius: 12,
+  },
+});
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>My Calendar App</h1>
-      </header>
-      <main>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Container maxWidth="md" sx={{ mt: 5 }}>
         <Calendar />
-      </main>
-    </div>
+      </Container>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
