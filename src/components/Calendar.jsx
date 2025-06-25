@@ -11,6 +11,8 @@ const Calendar = () => {
     return stored ? JSON.parse(stored) : {};
   });
 
+  const [priorityFilter, setPriorityFilter] = useState("all");
+
   useEffect(() => {
     localStorage.setItem("calendarEvents", JSON.stringify(events));
   }, [events]);
@@ -25,34 +27,29 @@ const Calendar = () => {
     day = day.add(1, "day");
   }
 
-  // Count priority-based events (timeline style)
-  const priorityCounts = {
-    high: 0,
-    medium: 0,
-    low: 0,
-  };
-
-  Object.values(events).forEach((value) => {
-    if (typeof value === "object" && !Array.isArray(value)) {
-      Object.values(value).forEach((taskArray) => {
-        taskArray.forEach((task) => {
-          if (priorityCounts.hasOwnProperty(task.priority)) {
-            priorityCounts[task.priority]++;
-          }
-        });
-      });
-    }
-  });
-
   return (
     <div className="calendar">
       <CalendarHeader date={currentDate} setDate={setCurrentDate} />
 
-      {/* ✅ Priority Count Summary */}
-      <div className="priority-summary">
-        <span className="count-high">🔴 High: {priorityCounts.high}</span>
-        <span className="count-medium">🟡 Medium: {priorityCounts.medium}</span>
-        <span className="count-low">🟢 Low: {priorityCounts.low}</span>
+      {/* 🔽 Priority Filter Dropdown */}
+      <div className="priority-filter-1">
+        <label style={{ color: "#fff", marginRight: "10px" }}>Filter by Priority:</label>
+        <select
+          value={priorityFilter}
+          onChange={(e) => setPriorityFilter(e.target.value)}
+          style={{
+            padding: "8px",
+            borderRadius: "4px",
+            backgroundColor: "#222",
+            color: "#fff",
+            border: "1px solid #444",
+          }}
+        >
+          <option value="all">All</option>
+          <option value="high">High 🔴</option>
+          <option value="medium">Medium 🟡</option>
+          <option value="low">Low 🟢</option>
+        </select>
       </div>
 
       <div className="calendar-grid">
@@ -60,36 +57,41 @@ const Calendar = () => {
           <div className="calendar-header" key={d}>{d}</div>
         ))}
         {days.map((day, idx) => {
-  const dateStr = day.format("YYYY-MM-DD");
-  const dayEvents = events[dateStr];
+          const dateStr = day.format("YYYY-MM-DD");
+          const dayEvents = events[dateStr];
+          let priorityCount = { high: 0, medium: 0, low: 0 };
 
-  let priorityCount = { high: 0, medium: 0, low: 0 };
+          if (dayEvents && typeof dayEvents === "object" && !Array.isArray(dayEvents)) {
+            Object.values(dayEvents).flat().forEach((event) => {
+              if (event.priority && priorityCount[event.priority] !== undefined) {
+                priorityCount[event.priority]++;
+              }
+            });
+          }
 
-  if (dayEvents && typeof dayEvents === "object" && !Array.isArray(dayEvents)) {
-    // timeline-based format
-    Object.values(dayEvents).flat().forEach((event) => {
-      if (event.priority && priorityCount[event.priority] !== undefined) {
-        priorityCount[event.priority]++;
-      }
-    });
-  }
+          // ✅ Filter: if a specific priority is selected and its count is 0, skip rendering anything
+          const shouldShow =
+            priorityFilter === "all" || priorityCount[priorityFilter] > 0;
 
-  return (
-    <Day
-      key={idx}
-      date={day}
-      currentMonth={currentDate.month()}
-      priorityCount={priorityCount}
-      addEvent={(event) => {
-        const updated = {
-          ...events,
-          [dateStr]: [...(Array.isArray(events[dateStr]) ? events[dateStr] : []), event],
-        };
-        setEvents(updated);
-      }}
-    />
-  );
-})}``
+          return (
+            <Day
+              key={idx}
+              date={day}
+              currentMonth={currentDate.month()}
+              priorityCount={shouldShow ? priorityCount : { high: 0, medium: 0, low: 0 }}
+              addEvent={(event) => {
+                const updated = {
+                  ...events,
+                  [dateStr]: [
+                    ...(Array.isArray(events[dateStr]) ? events[dateStr] : []),
+                    event,
+                  ],
+                };
+                setEvents(updated);
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   );
