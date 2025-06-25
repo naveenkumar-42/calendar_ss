@@ -105,23 +105,27 @@ const TimelineScheduler = () => {
       </div>
 
       <div className="timeline-list">
-        {timeSlots.map((slot) => (
-          <div key={slot} className="time-slot">
-            <div className="slot-time">{slot}</div>
-            <div className="slot-task">
-              {(tasks[slot] || []).map((task, idx) => (
-                <div key={idx} className={`task-item priority-${task.priority}`}>
-  <span>{task.text}</span>
+        {timeSlots.map((slot) => {
+  const slotTasks = tasks[slot] || [];
+  if (slotTasks.length === 0) return null; // hide empty slots
 
-                  <div className="slot-buttons">
-                    <button onClick={() => handleEdit(slot, idx)}>✏️</button>
-                    <button onClick={() => handleDelete(slot, idx)}>🗑️</button>
-                  </div>
-                </div>
-              ))}
+  return (
+    <div key={slot} className="time-slot">
+      <div className="slot-time">{slot}</div>
+      <div className="slot-task">
+        {slotTasks.map((task, idx) => (
+          <div key={idx} className={`task-item priority-${task.priority}`}>
+            <span>{task.text}</span>
+            <div className="slot-buttons">
+              <button onClick={() => handleEdit(slot, idx)}>✏️</button>
+              <button onClick={() => handleDelete(slot, idx)}>🗑️</button>
             </div>
           </div>
         ))}
+      </div>
+    </div>
+  );
+})}
       </div>
 
       <button className="back-button" onClick={() => navigate("/")}>Back to Calendar</button>

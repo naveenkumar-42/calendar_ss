@@ -21,8 +21,9 @@ const CalendarHeader = ({ date, setDate }) => {
   return (
     <>
     <h2 className="calendar-title">Calendar</h2>
-    <div className="calendar-header-controls calendar-header-wrapper">
+    <div className="calendar-header-wrapper">
       <button onClick={() => setDate(date.subtract(1, "month"))}>&lt;</button>
+      <div className="calendar-header-controls">
       <select value={date.month()} onChange={handleMonthChange}>
         {months.map((month, idx) => (
           <option key={idx} value={idx}>{month}</option>
@@ -34,6 +35,7 @@ const CalendarHeader = ({ date, setDate }) => {
           <option key={year} value={year}>{year}</option>
         ))}
       </select>
+        </div>
       <button onClick={() => setDate(date.add(1, "month"))}>&gt;</button>
     </div>
     </>

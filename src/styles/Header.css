@@ -42,7 +42,7 @@
 }
 
 .calendar-header-controls select {
-  padding: 10px 16px;
+  padding: 12px 16px;
   font-size: 16px;
   border-radius: 8px;
   background-color: #1e1e1e;
@@ -54,8 +54,10 @@
 }
 
 .calendar-header-controls select:hover,
-.calendar-header-controls select:focus {
-  border-color: #0f62fe;
+.calendar-header-controls select:focus,
+.calendar-header-wrapper button:hover 
+{
+  border-color: #4caf50;
   box-shadow: 0 0 0 2px rgba(15, 98, 254, 0.4);
   background-color: #2c2c2c;
 }

@@ -12,6 +12,7 @@
 .day:hover {
   background: #3c3c3c;
   border: 0.5px solid white;
+  translate: -10px -10px;
 }
 
 .today {
