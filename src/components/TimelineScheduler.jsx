@@ -21,6 +21,7 @@ const TimelineScheduler = () => {
   const [priority, setPriority] = useState("low");
   const [editMode, setEditMode] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
+  const [filter, setFilter] = useState("all");
   const timeSlots = generateTimeSlots();
 
   useEffect(() => {
@@ -74,11 +75,21 @@ const TimelineScheduler = () => {
     localStorage.setItem("calendarEvents", JSON.stringify(all));
   };
 
+  const filteredTasksCount = Object.values(tasks)
+    .flat()
+    .filter((task) => filter === "all" || task.priority === filter).length;
+
   return (
     <div className="timeline-page">
       <h2>Task Schedule for {date}</h2>
 
+      {/* Priority Filter Module */}
+      <div className="priority-filter">
+        
+      </div>
+
       <div className="top-controls">
+        <div className="top-1">
         <select value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
           <option value="">Select Time</option>
           {timeSlots.map((slot) => (
@@ -100,32 +111,47 @@ const TimelineScheduler = () => {
           <option value="medium">Medium</option>
           <option value="high">High</option>
         </select>
-
         <button onClick={handleAddOrUpdate}>{editMode ? "Update" : "Add Task"}</button>
+        </div>
+        <div className="top-2">
+        <label>Filter by Priority: </label>
+        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+          <option value="all">All</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+        <span className="task-count">Count: {filteredTasksCount}</span>
+        </div>
       </div>
 
       <div className="timeline-list">
         {timeSlots.map((slot) => {
-  const slotTasks = tasks[slot] || [];
-  if (slotTasks.length === 0) return null; // hide empty slots
+          const slotTasks = tasks[slot] || [];
+          if (slotTasks.length === 0) return null;
 
-  return (
-    <div key={slot} className="time-slot">
-      <div className="slot-time">{slot}</div>
-      <div className="slot-task">
-        {slotTasks.map((task, idx) => (
-          <div key={idx} className={`task-item priority-${task.priority}`}>
-            <span>{task.text}</span>
-            <div className="slot-buttons">
-              <button onClick={() => handleEdit(slot, idx)}>✏️</button>
-              <button onClick={() => handleDelete(slot, idx)}>🗑️</button>
+          const filtered = slotTasks.filter(
+            (task) => filter === "all" || task.priority === filter
+          );
+          if (filtered.length === 0) return null;
+
+          return (
+            <div key={slot} className="time-slot">
+              <div className="slot-time">{slot}</div>
+              <div className="slot-task">
+                {filtered.map((task, idx) => (
+                  <div key={idx} className={`task-item priority-${task.priority}`}>
+                    <span>{task.text}</span>
+                    <div className="slot-buttons">
+                      <button onClick={() => handleEdit(slot, idx)}>✏️</button>
+                      <button onClick={() => handleDelete(slot, idx)}>🗑️</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-})}
+          );
+        })}
       </div>
 
       <button className="back-button" onClick={() => navigate("/")}>Back to Calendar</button>

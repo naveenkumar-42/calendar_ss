@@ -4,6 +4,14 @@
   border-radius: 12px;
 }
 
+.calendar-title {
+  margin-bottom: 30px;
+  color: #fff;
+  padding: 15px;
+  background:#0f62fe ;
+  border-radius: 10px ;
+}
+
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -15,4 +23,9 @@
   font-weight: bold;
   color: #90caf9;
   text-align: center;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #5e5e5e;
+  
 }

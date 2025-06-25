@@ -10,14 +10,31 @@
 .timeline-page h2 {
   margin-bottom: 30px;
   color: #fff;
+  padding: 20px;
+  background:#0f62fe ;
+  border-radius: 10px ;
 }
 
 .top-controls {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   gap: 10px;
+  padding: 20px;
+  margin: 0 30px;
   margin-bottom: 25px;
   flex-wrap: wrap;
+}
+
+.top-1,
+.top-2{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.top-2{
+  display: flex;
+  flex-direction: column;
 }
 
 .top-controls select,
@@ -30,7 +47,8 @@
   font-size: 14px;
 }
 
-.top-controls button {
+.top-controls button,
+.top-2 span {
   padding: 8px 14px;
   background-color: #0f62fe;
   border: none;
@@ -89,6 +107,7 @@
   align-items: center;
   background: rgba(50, 50, 50, 0.8);
   border-left: 4px solid #555;
+  border-right: 4px solid #555;
   padding: 10px 14px;
   border-radius: 8px;
   color: #fff;
@@ -154,4 +173,10 @@
 
 .back-button:hover {
   background-color: #757070;
+}
+
+.priority-filter{
+  padding: 10px;
+  margin: 10px;
+  
 }
