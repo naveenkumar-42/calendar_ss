@@ -21,18 +21,6 @@ A fully functional and responsive **calendar application** built with React that
 
 ---
 
-## 🖥️ Screenshots
-
-### Desktop View
-
-![Desktop View](./screenshots/desktop-view.png)
-
-### Mobile View
-
-![Mobile View](./screenshots/mobile-view.png)
-
----
-
 ## 🛠️ Tech Stack
 
 - [React](https://reactjs.org/)
@@ -43,7 +31,7 @@ A fully functional and responsive **calendar application** built with React that
 ---
 
 ## 📁 Project Structure
-
+```bash
 calendar-app/
 ├── public/
 ├── src/
@@ -60,28 +48,29 @@ calendar-app/
 │ └── index.js
 ├── README.md
 └── package.json
-
-
+```
 ---
 
-📦 Installation & Setup
+## 📦 Installation & Setup
 
-Clone the repository:
-
+### Clone the repository:
+```bash
 git clone https://github.com/your-username/calendar-app.git
 cd calendar-app
+```
 
-Install dependencies:
-
+### Install dependencies:
+```bash
 npm install
-
-Start the development server:
-
+```
+### Start the development server:
+```bash
 npm start
-
+```
+```bash
 Open your browser at http://localhost:3000
-
-📌 Notes
+```
+## 📌 Notes
 
 This app uses localStorage so your events persist even after page reload.
 
@@ -89,11 +78,11 @@ Mobile view shows only colored dots for tasks instead of text for clarity.
 
 You can update task priority and delete tasks from the timeline view.
 
-🙌 Author
+## 🙌 Author
 
-Naveen Kumar PGitHub: @naveenkumar-42
+Naveen Kumar P GitHub: @naveenkumar-42
 
-📄 License
+## 📄 License
 
 This project is licensed under the MIT License - feel free to use and modify it.
 
