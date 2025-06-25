@@ -1,70 +1,99 @@
-# Getting Started with Create React App
+# 🗓️ React Calendar Scheduler
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A fully functional and responsive **calendar application** built with React that allows users to:
 
-## Available Scripts
+- View a monthly calendar.
+- Schedule tasks for specific time slots in a day.
+- Assign **priority levels** (High, Medium, Low).
+- Filter tasks by priority.
+- Store and retrieve data using `localStorage`.
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 📆 Monthly calendar grid with proper alignment.
+- 🕘 Timeline-based task scheduler per day (6:00 AM to 10:00 PM).
+- 🎯 Priority-based tasks: `High 🔴`, `Medium 🟡`, `Low 🟢`.
+- 🔍 Filter view by priority (both in calendar and timeline).
+- 🧠 Task editing and deletion support.
+- 💾 Persistent data storage using browser's localStorage.
+- 💻 Fully **responsive** for desktop and mobile views.
+- 🎨 Clean dark UI with modern CSS styling.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🖥️ Screenshots
 
-### `npm test`
+### Desktop View
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Desktop View](./screenshots/desktop-view.png)
 
-### `npm run build`
+### Mobile View
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Mobile View](./screenshots/mobile-view.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Tech Stack
 
-### `npm run eject`
+- [React](https://reactjs.org/)
+- [React Router](https://reactrouter.com/)
+- [Day.js](https://day.js.org/) – lightweight date manipulation library
+- CSS (custom, responsive with media queries)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📁 Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+calendar-app/
+├── public/
+├── src/
+│ ├── components/
+│ │ ├── Calendar.js
+│ │ ├── CalendarHeader.js
+│ │ ├── Day.js
+│ │ └── TimelineScheduler.js
+│ ├── styles/
+│ │ ├── Calendar.css
+│ │ ├── Day.css
+│ │ └── TimelineScheduler.css
+│ ├── App.js
+│ └── index.js
+├── README.md
+└── package.json
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+📦 Installation & Setup
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Clone the repository:
 
-### Code Splitting
+git clone https://github.com/your-username/calendar-app.git
+cd calendar-app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Install dependencies:
 
-### Analyzing the Bundle Size
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Start the development server:
 
-### Making a Progressive Web App
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Open your browser at http://localhost:3000
 
-### Advanced Configuration
+📌 Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This app uses localStorage so your events persist even after page reload.
 
-### Deployment
+Mobile view shows only colored dots for tasks instead of text for clarity.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+You can update task priority and delete tasks from the timeline view.
 
-### `npm run build` fails to minify
+🙌 Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Naveen Kumar PGitHub: @naveenkumar-42
+
+📄 License
+
+This project is licensed under the MIT License - feel free to use and modify it.
+
