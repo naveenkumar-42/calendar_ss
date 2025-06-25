@@ -25,40 +25,71 @@ const Calendar = () => {
     day = day.add(1, "day");
   }
 
+  // Count priority-based events (timeline style)
+  const priorityCounts = {
+    high: 0,
+    medium: 0,
+    low: 0,
+  };
+
+  Object.values(events).forEach((value) => {
+    if (typeof value === "object" && !Array.isArray(value)) {
+      Object.values(value).forEach((taskArray) => {
+        taskArray.forEach((task) => {
+          if (priorityCounts.hasOwnProperty(task.priority)) {
+            priorityCounts[task.priority]++;
+          }
+        });
+      });
+    }
+  });
+
   return (
     <div className="calendar">
       <CalendarHeader date={currentDate} setDate={setCurrentDate} />
+
+      {/* ✅ Priority Count Summary */}
+      <div className="priority-summary">
+        <span className="count-high">🔴 High: {priorityCounts.high}</span>
+        <span className="count-medium">🟡 Medium: {priorityCounts.medium}</span>
+        <span className="count-low">🟢 Low: {priorityCounts.low}</span>
+      </div>
+
       <div className="calendar-grid">
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
           <div className="calendar-header" key={d}>{d}</div>
         ))}
         {days.map((day, idx) => {
-          const dateStr = day.format("YYYY-MM-DD");
-          const dayEvents = events[dateStr];
+  const dateStr = day.format("YYYY-MM-DD");
+  const dayEvents = events[dateStr];
 
-          // If event type is array, pass it. If it's timeline-based, show time count.
-          const displayEvents = Array.isArray(dayEvents)
-            ? dayEvents
-            : dayEvents
-              ? Object.values(dayEvents).flat().map(e => e.text)
-              : [];
+  let priorityCount = { high: 0, medium: 0, low: 0 };
 
-          return (
-            <Day
-              key={idx}
-              date={day}
-              currentMonth={currentDate.month()}
-              events={displayEvents}
-              addEvent={(event) => {
-                const updated = {
-                  ...events,
-                  [dateStr]: [...(Array.isArray(events[dateStr]) ? events[dateStr] : []), event],
-                };
-                setEvents(updated);
-              }}
-            />
-          );
-        })}
+  if (dayEvents && typeof dayEvents === "object" && !Array.isArray(dayEvents)) {
+    // timeline-based format
+    Object.values(dayEvents).flat().forEach((event) => {
+      if (event.priority && priorityCount[event.priority] !== undefined) {
+        priorityCount[event.priority]++;
+      }
+    });
+  }
+
+  return (
+    <Day
+      key={idx}
+      date={day}
+      currentMonth={currentDate.month()}
+      priorityCount={priorityCount}
+      addEvent={(event) => {
+        const updated = {
+          ...events,
+          [dateStr]: [...(Array.isArray(events[dateStr]) ? events[dateStr] : []), event],
+        };
+        setEvents(updated);
+      }}
+    />
+  );
+})}``
       </div>
     </div>
   );

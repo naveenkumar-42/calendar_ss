@@ -36,10 +36,15 @@
 
 .event {
   font-size: 0.8rem;
-  background: #1976d2;
   color: white;
   padding: 2px 4px;
   border-radius: 4px;
   margin-top: 2px;
-  text-align: center;
+  text-align: left;
+  margin-left: 10px;
+  
+}
+
+.events{
+  margin-top: 10px;
 }
