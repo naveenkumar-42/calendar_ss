@@ -2,14 +2,7 @@
   background: #1f1f1f;
   padding: 1rem;
   border-radius: 12px;
-}
-
-.calendar-title {
-  margin-bottom: 30px;
-  color: #fff;
-  padding: 15px;
-  background:#0f62fe ;
-  border-radius: 10px ;
+  overflow-y: auto;
 }
 
 .calendar-grid {
@@ -19,6 +12,15 @@
   margin: 2rem;
 }
 
+.calendar-title {
+  margin-bottom: 30px;
+  color: #fff;
+  padding: 15px;
+  background: #0f62fe;
+  border-radius: 10px;
+}
+
+
 .calendar-header {
   font-weight: bold;
   color: #90caf9;
@@ -27,17 +29,64 @@
   border: 1px solid #444;
   border-radius: 8px;
   background: #5e5e5e;
-  
+  font-size: 16px;
 }
 
+.calendar-header-controls select {
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #444;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+
+  /* Fix arrow and remove OS styling */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-caret-down-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14l-4.796-5.481C1.885 5.22 2.325 4 3.254 4h9.492c.93 0 1.369 1.22.803 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
+}
+
+
+/* Priority count display styles */
 .priority-summary {
   display: flex;
   justify-content: center;
   gap: 20px;
+  border-radius: 8px;
   margin: 16px 0;
   font-weight: bold;
   font-size: 16px;
   color: #eee;
+}
+
+select {
+  padding: 12px 16px;
+  font-size: 16px;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  color: #fff;
+  border: 1px solid #444;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+
+  /* Fix arrow and remove OS styling */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='white' class='bi bi-caret-down-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14l-4.796-5.481C1.885 5.22 2.325 4 3.254 4h9.492c.93 0 1.369 1.22.803 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px;
+  padding-right: 36px;
 }
 
 .count-high {
@@ -50,8 +99,56 @@
   color: #4caf50;
 }
 
+/* Filter dropdown */
+.priority-filter-1 {
+  text-align: right;
+  margin: 10px 40px 20px 0;
+}
 
-.priority-filter-1{
-  text-align: end;
-  margin : 10px 60px 20px 0px;
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+
+@media (max-width: 1024px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    margin: 1rem;
+    gap: 0.3rem;
+  }
+
+  .calendar-header {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .priority-filter-1 {
+    text-align: center;
+    margin: 10px auto;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-grid {
+    grid-template-columns: repeat(7, 1fr);
+    margin: 0.5rem;
+    gap: 0.2rem;
+  }
+
+  .calendar-header {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 360px) {
+  .calendar-header {
+    font-size: 10px;
+    padding: 4px;
+  }
 }

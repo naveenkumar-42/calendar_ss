@@ -38,8 +38,7 @@ const Calendar = () => {
           value={priorityFilter}
           onChange={(e) => setPriorityFilter(e.target.value)}
           style={{
-            padding: "8px",
-            borderRadius: "4px",
+            padding: "10px",
             backgroundColor: "#222",
             color: "#fff",
             border: "1px solid #444",

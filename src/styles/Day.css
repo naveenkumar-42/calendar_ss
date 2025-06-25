@@ -48,3 +48,63 @@
 .events{
   margin-top: 10px;
 }
+
+
+
+/* Colored dots */
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 2px;
+}
+
+.high-dot {
+  background-color: #ff4d4d;
+}
+.medium-dot {
+  background-color: #ffcc00;
+}
+.low-dot {
+  background-color: #4caf50;
+}
+
+/* Count text colors */
+.count-high {
+  color: #ff4d4d;
+}
+.count-medium {
+  color: #ffcc00;
+}
+.count-low {
+  color: #4caf50;
+}
+
+/* Default: show desktop events */
+.desktop-events {
+  display: flex;
+  flex-direction: column;
+
+}
+.mobile-dots {
+  display: none;
+}
+
+
+
+/* Mobile: show dots, hide desktop */
+@media (max-width: 768px) {
+  .desktop-events {
+    display: none;
+  }
+
+  .day{
+    height: 60px;
+    margin: 2px;
+  }
+  .mobile-dots {
+    display: flex;
+    justify-content: center;
+  }
+}

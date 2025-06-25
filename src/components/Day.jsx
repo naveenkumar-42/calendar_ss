@@ -19,6 +19,8 @@ const Day = ({ date, currentMonth, priorityCount }) => {
     >
       <div className="date-number">{date.date()}</div>
       <div className="events">
+        {/* Desktop: show priority count as text */}
+        <div className="desktop-events">
         {priorityCount.high > 0 && (
           <div className="event" style={{ color: "#ff4d4d" }}>🔴 High: {priorityCount.high}</div>
         )}
@@ -28,6 +30,14 @@ const Day = ({ date, currentMonth, priorityCount }) => {
         {priorityCount.low > 0 && (
           <div className="event" style={{ color: "#4caf50" }}>🟢 Low: {priorityCount.low}</div>
         )}
+      </div>
+
+        {/* Mobile: show colored dots only */}
+        <div className="mobile-dots">
+          {priorityCount.high > 0 && <span className="dot high-dot" title="High" />}
+          {priorityCount.medium > 0 && <span className="dot medium-dot" title="Medium" />}
+          {priorityCount.low > 0 && <span className="dot low-dot" title="Low" />}
+        </div>
       </div>
     </div>
   );
