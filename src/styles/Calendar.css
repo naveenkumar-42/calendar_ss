@@ -105,6 +105,13 @@ select {
   margin: 10px 40px 20px 0;
 }
 
+.priority-filter-2 {
+  padding: 10px;
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
 /* ---------- RESPONSIVE BREAKPOINTS ---------- */
 
 @media (max-width: 1024px) {

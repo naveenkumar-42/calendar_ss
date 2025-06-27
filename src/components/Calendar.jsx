@@ -34,14 +34,11 @@ const Calendar = () => {
       {/* 🔽 Priority Filter Dropdown */}
       <div className="priority-filter-1">
         <label style={{ color: "#fff", marginRight: "10px" }}>Filter by Priority:</label>
-        <select
+        <select className="priority-filter-2"
           value={priorityFilter}
           onChange={(e) => setPriorityFilter(e.target.value)}
           style={{
-            padding: "10px",
-            backgroundColor: "#222",
-            color: "#fff",
-            border: "1px solid #444",
+
           }}
         >
           <option value="all">All</option>
