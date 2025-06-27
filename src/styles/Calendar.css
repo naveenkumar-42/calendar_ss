@@ -42,7 +42,6 @@
   outline: none;
   transition: all 0.2s ease-in-out;
 
-  /* Fix arrow and remove OS styling */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -54,8 +53,6 @@
   padding-right: 36px;
 }
 
-
-/* Priority count display styles */
 .priority-summary {
   display: flex;
   justify-content: center;
@@ -77,7 +74,6 @@ select {
   outline: none;
   transition: all 0.2s ease-in-out;
 
-  /* Fix arrow and remove OS styling */
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -99,7 +95,7 @@ select {
   color: #4caf50;
 }
 
-/* Filter dropdown */
+
 .priority-filter-1 {
   text-align: right;
   margin: 10px 40px 20px 0;
